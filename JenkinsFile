@@ -22,7 +22,7 @@ pipeline {
     }
 	stage('Sonarqube') {
 		environment {
-			scannerHome = tool 'SonarQube Scanner 2.8'
+			scannerHome = tool 'LocalRunner'
 		}
 		steps {
 			withSonarQubeEnv('LocalRunner') {
