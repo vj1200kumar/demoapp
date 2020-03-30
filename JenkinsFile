@@ -11,7 +11,7 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          bat 'npm run test'
+          bat 'npm run test -- --coverage'
         }
       }
       post {
