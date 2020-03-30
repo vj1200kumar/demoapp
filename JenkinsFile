@@ -1,14 +1,17 @@
 #!/bin/groovy
 pipeline {
-  tools {
-    nodejs 'default-nodejs'
-  }
+  agent any
   stages {
-    stage('Startup') {
+    stage('Cloning Git') {
       steps {
         script {
-          sh 'npm install'
+          git 'https://github.com/vj1200kumar/demoapp.git'
         }
+      }
+    }  
+	stage('Install dependencies') {
+      steps {
+        sh 'npm install'
       }
     }
     stage('Test') {
