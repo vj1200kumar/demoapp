@@ -8,7 +8,7 @@ pipeline {
         bat 'npm install'
       }
     }
-    stage('Test') {
+    stage('Test - Code Coverage') {
       steps {
         script {
           bat 'npm run test'
