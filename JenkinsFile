@@ -20,5 +20,15 @@ pipeline {
         }
       }
     }
+	stage('Sonarqube') {
+		environment {
+			scannerHome = tool 'LocalRunner'
+		}
+		steps {
+			withSonarQubeEnv('sonarqube') {
+				bat "${scannerHome}/bin/sonar-scanner"
+			}
+		}
+	}	
   }
 }
